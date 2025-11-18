@@ -165,6 +165,60 @@ npx hardhat test
 
 ---
 
+## **How to Use**
+
+1. **Deploy the Contract**
+
+   * Deploy `Ballot.sol` via **Hardhat**, **Remix**, or any Ethereum environment.
+   * Pass an array of proposal names during deployment:
+
+     ```js
+     ["Proposal1", "Proposal2", "Proposal3"]
+     ```
+
+2. **Grant Voting Rights**
+
+   * Only the chairperson can give voting rights:
+
+     ```solidity
+     giveRightToVote(voterAddress)
+     ```
+
+3. **Cast Votes**
+
+   * Voters can vote by specifying the proposal index:
+
+     ```solidity
+     vote(proposalIndex)
+     ```
+
+4. **Query Results**
+
+   * Find the winning proposal index:
+
+     ```solidity
+     winningProposal()
+     ```
+   * Get the winning proposal name:
+
+     ```solidity
+     winningName()
+     ```
+
+5. **Using Node.js Scripts** (Optional)
+
+   * Convert a string to `bytes32` for contract interaction:
+
+     ```bash
+     node createBytes.js "ProposalName"
+     ```
+   * Convert `bytes32` back to a string:
+
+     ```bash
+     node parseBytes.js <bytes32_value>
+     ```
+
+
 ## **Notes**
 
 * Chairperson starts with voting weight 1.
